@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/PhysicsEngine.dir/src/main.cpp.o"
-  "PhysicsEngine"
-  "PhysicsEngine.pdb"
+  "Debug/PhysicsEngine"
+  "Debug/PhysicsEngine.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

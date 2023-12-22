@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "PhysicsEngine"
+			"path" : "Debug/PhysicsEngine"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 23,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 14,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -74,10 +74,6 @@
 			},
 			{
 				"fragment" : "-lSDL2",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lSDL2_ttf",
 				"role" : "libraries"
 			}
 		],
