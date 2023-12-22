@@ -11,7 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_include_directories"
+			"include_directories"
 		],
 		"files" : 
 		[
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 11,
+				"line" : 23,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 13,
+				"line" : 14,
 				"parent" : 0
 			}
 		]
@@ -74,6 +74,10 @@
 			},
 			{
 				"fragment" : "-lSDL2",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lSDL2_ttf",
 				"role" : "libraries"
 			}
 		],

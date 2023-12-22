@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/rakshit/Desktop/Engine/build",
-  "command": "/usr/bin/c++   -I/usr/include/SDL2  -g   -o CMakeFiles/PhysicsEngine.dir/src/main.cpp.o -c /home/rakshit/Desktop/Engine/src/main.cpp",
+  "command": "/usr/bin/g++   -I/usr/include/SDL2  -g   -o CMakeFiles/PhysicsEngine.dir/src/main.cpp.o -c /home/rakshit/Desktop/Engine/src/main.cpp",
   "file": "/home/rakshit/Desktop/Engine/src/main.cpp"
 }
 ]

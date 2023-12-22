@@ -60,15 +60,15 @@ include CMakeFiles/PhysicsEngine.dir/flags.make
 CMakeFiles/PhysicsEngine.dir/src/main.cpp.o: CMakeFiles/PhysicsEngine.dir/flags.make
 CMakeFiles/PhysicsEngine.dir/src/main.cpp.o: ../src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rakshit/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PhysicsEngine.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhysicsEngine.dir/src/main.cpp.o -c /home/rakshit/Desktop/Engine/src/main.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhysicsEngine.dir/src/main.cpp.o -c /home/rakshit/Desktop/Engine/src/main.cpp
 
 CMakeFiles/PhysicsEngine.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhysicsEngine.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rakshit/Desktop/Engine/src/main.cpp > CMakeFiles/PhysicsEngine.dir/src/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rakshit/Desktop/Engine/src/main.cpp > CMakeFiles/PhysicsEngine.dir/src/main.cpp.i
 
 CMakeFiles/PhysicsEngine.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhysicsEngine.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rakshit/Desktop/Engine/src/main.cpp -o CMakeFiles/PhysicsEngine.dir/src/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rakshit/Desktop/Engine/src/main.cpp -o CMakeFiles/PhysicsEngine.dir/src/main.cpp.s
 
 # Object files for target PhysicsEngine
 PhysicsEngine_OBJECTS = \
@@ -79,6 +79,7 @@ PhysicsEngine_EXTERNAL_OBJECTS =
 
 PhysicsEngine: CMakeFiles/PhysicsEngine.dir/src/main.cpp.o
 PhysicsEngine: CMakeFiles/PhysicsEngine.dir/build.make
+PhysicsEngine: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
 PhysicsEngine: CMakeFiles/PhysicsEngine.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rakshit/Desktop/Engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable PhysicsEngine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PhysicsEngine.dir/link.txt --verbose=$(VERBOSE)
