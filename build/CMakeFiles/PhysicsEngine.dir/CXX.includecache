@@ -6,11 +6,21 @@
 
 #IncludeRegexTransform: 
 
+/home/rakshit/Desktop/Engine/src/Circle.cpp
+iostream
+-
+SDL.h
+-
+include/Circle.hpp
+/home/rakshit/Desktop/Engine/src/include/Circle.hpp
+
 /home/rakshit/Desktop/Engine/src/main.cpp
 iostream
 -
 SDL.h
 -
+include/Circle.hpp
+/home/rakshit/Desktop/Engine/src/include/Circle.hpp
 
 /usr/include/SDL2/SDL.h
 SDL_main.h

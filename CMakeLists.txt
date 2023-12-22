@@ -14,16 +14,21 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/Release)
 # Find SDL2
 find_package(SDL2 REQUIRED)
 
-# Include directories for SDL2
-include_directories(${SDL2_INCLUDE_DIRS})
-
 # List your source files
 set(SOURCES 
     src/main.cpp
+    src/Circle.cpp
+    include/Circle.hpp
 )
 
 # Create an executable
 add_executable(PhysicsEngine ${SOURCES})
+
+# Include directories for SDL2
+include_directories(${SDL2_INCLUDE_DIRS})
+
+# Include directory
+target_include_directories(PhysicsEngine PRIVATE include)
 
 # Link the executable with SDL2 libraries
 target_link_libraries(PhysicsEngine PRIVATE ${SDL2_LIBRARIES})

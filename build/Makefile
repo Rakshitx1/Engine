@@ -123,6 +123,33 @@ PhysicsEngine/fast:
 	$(MAKE) -f CMakeFiles/PhysicsEngine.dir/build.make CMakeFiles/PhysicsEngine.dir/build
 .PHONY : PhysicsEngine/fast
 
+src/Circle.o: src/Circle.cpp.o
+
+.PHONY : src/Circle.o
+
+# target to build an object file
+src/Circle.cpp.o:
+	$(MAKE) -f CMakeFiles/PhysicsEngine.dir/build.make CMakeFiles/PhysicsEngine.dir/src/Circle.cpp.o
+.PHONY : src/Circle.cpp.o
+
+src/Circle.i: src/Circle.cpp.i
+
+.PHONY : src/Circle.i
+
+# target to preprocess a source file
+src/Circle.cpp.i:
+	$(MAKE) -f CMakeFiles/PhysicsEngine.dir/build.make CMakeFiles/PhysicsEngine.dir/src/Circle.cpp.i
+.PHONY : src/Circle.cpp.i
+
+src/Circle.s: src/Circle.cpp.s
+
+.PHONY : src/Circle.s
+
+# target to generate assembly for a file
+src/Circle.cpp.s:
+	$(MAKE) -f CMakeFiles/PhysicsEngine.dir/build.make CMakeFiles/PhysicsEngine.dir/src/Circle.cpp.s
+.PHONY : src/Circle.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... PhysicsEngine"
+	@echo "... src/Circle.o"
+	@echo "... src/Circle.i"
+	@echo "... src/Circle.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
