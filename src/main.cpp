@@ -5,11 +5,12 @@ const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 const int CIRCLE_RADIUS = 20;
 float dampening = 0.9f; // Dampening factor
-float gravity = 0.1f; // Gravity factor
+float gravity = 0.1f;   // Gravity factor
 
 class Circle {
 public:
-    Circle(float x, float y, float radius, float vx, float vy) : x(x), y(y), radius(radius), vx(vx), vy(vy) {}
+    Circle(float x, float y, float radius, float vx, float vy)
+        : x(x), y(y), radius(radius), vx(vx), vy(vy) {}
 
     void update() {
         x += vx;
@@ -17,21 +18,19 @@ public:
         y += vy;
 
         // Check for collisions with the bounding box
-        if (x - radius < 0){
+        if (x - radius < 0) {
             x = radius;
-            vx = -vx*dampening; // Reflect velocity on X-axis
-        }
-        else if (x + radius > SCREEN_WIDTH) {
+            vx = -vx * dampening; // Reflect velocity on X-axis
+        } else if (x + radius > SCREEN_WIDTH) {
             x = SCREEN_WIDTH - radius;
-            vx = -vx*dampening; // Reflect velocity on X-axis
+            vx = -vx * dampening; // Reflect velocity on X-axis
         }
-        if(y - radius < 0){
+        if (y - radius < 0) {
             y = radius;
-            vy = -vy*dampening; // Reflect velocity on Y-axis
-        }
-        else if (y + radius > SCREEN_HEIGHT) {
+            vy = -vy * dampening; // Reflect velocity on Y-axis
+        } else if (y + radius > SCREEN_HEIGHT) {
             y = SCREEN_HEIGHT - radius;
-            vy = -vy*dampening; // Reflect velocity on Y-axis
+            vy = -vy * dampening; // Reflect velocity on Y-axis
         }
     }
 
@@ -39,11 +38,6 @@ public:
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White color
         draw_circle(renderer, x, y, radius);
     }
-
-private:
-    float x, y; // Circle center coordinates
-    float radius;
-    float vx, vy; // Velocity components
 
     // Function to draw a circle on the renderer
     void draw_circle(SDL_Renderer* renderer, float x, float y, float radius) const {
@@ -71,6 +65,26 @@ private:
             }
         }
     }
+
+    // Getter functions for x and y positions
+    float getX() const {
+        return x;
+    }
+
+    float getY() const {
+        return y;
+    }
+
+    // Function to set the position of the circle
+    void setPosition(float newX, float newY) {
+        x = newX;
+        y = newY;
+    }
+
+private:
+    float x, y;            // Circle center coordinates
+    float radius;
+    float vx, vy;          // Velocity components
 };
 
 int main() {
@@ -85,30 +99,58 @@ int main() {
     }
     SDL_Init(SDL_INIT_VIDEO);
 
-    SDL_Window* window = SDL_CreateWindow("2D Physics Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_Window* window =
+        SDL_CreateWindow("2D Physics Engine", SDL_WINDOWPOS_CENTERED,
+                         SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT,
+                         SDL_WINDOW_SHOWN);
+    SDL_Renderer* renderer =
+        SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     Circle circle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, CIRCLE_RADIUS, 5, 5);
 
     bool quit = false;
+    bool paused = false;
     SDL_Event event;
 
     while (!quit) {
         while (SDL_PollEvent(&event) != 0) {
             if (event.type == SDL_QUIT) {
                 quit = true;
+            } else if (event.type == SDL_KEYDOWN) {
+                if (event.key.keysym.sym == SDLK_SPACE) {
+                    paused = !paused; // Toggle pause state
+                } else if (paused) {
+                    // If paused, allow the user to change the position
+                    // of the circle using arrow keys
+                    switch (event.key.keysym.sym) {
+                        case SDLK_UP:
+                            circle.setPosition(circle.getX(), circle.getY() - 5);
+                            break;
+                        case SDLK_DOWN:
+                            circle.setPosition(circle.getX(), circle.getY() + 5);
+                            break;
+                        case SDLK_LEFT:
+                            circle.setPosition(circle.getX() - 5, circle.getY());
+                            break;
+                        case SDLK_RIGHT:
+                            circle.setPosition(circle.getX() + 5, circle.getY());
+                            break;
+                    }
+                }
             }
         }
 
-        circle.update();
+        if (!paused) {
+            circle.update();
+        }
 
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Set the clear color to black
-        SDL_RenderClear(renderer); // Clear the renderer
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
 
         circle.render(renderer);
 
         SDL_RenderPresent(renderer);
-        SDL_Delay(16); // Add a small delay to control the frame rate
+        SDL_Delay(16);
     }
 
     SDL_DestroyRenderer(renderer);
