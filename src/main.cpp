@@ -88,11 +88,21 @@ private:
 };
 
 int main() {
-    std::cout << "Enter dampening factor (e): ";
-    std::cin >> dampening;
-    std::cout << "Enter gravity factor: ";
-    std::cin >> gravity;
-    // check dampening factor is between 0 and 1
+    std::cout << "Enter dampening factor (e, default 0.9): ";
+    std::string dampeningInput;
+    std::getline(std::cin, dampeningInput);
+
+    // Use default value if the input is empty
+    dampening = dampeningInput.empty() ? 0.9f : std::stof(dampeningInput);
+
+    std::cout << "Enter gravity factor (default 0.1): ";
+    std::string gravityInput;
+    std::getline(std::cin, gravityInput);
+
+    // Use default value if the input is empty
+    gravity = gravityInput.empty() ? 0.1f : std::stof(gravityInput);
+
+    // Check dampening factor is between 0 and 1
     if (dampening < 0 || dampening > 1) {
         std::cerr << "Dampening factor must be between 0 and 1" << std::endl;
         return 1;
