@@ -1,1 +1,1 @@
-/usr/bin/g++  -g  -rdynamic CMakeFiles/PhysicsEngine.dir/src/main.cpp.o  -o Debug/PhysicsEngine  -lSDL2 
+/usr/bin/g++ -g -rdynamic CMakeFiles/PhysicsEngine.dir/src/main.cpp.o -o Debug/PhysicsEngine  -lSDL2 

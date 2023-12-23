@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/main_debug.dir/src/main.cpp.o  -o main_debug  -lSDL2::SDL2main -lSDL2::SDL2 -lSDL2::SDL2_image 

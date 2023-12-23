@@ -1,2 +1,2 @@
-# Empty dependencies file for PhysicsEngine.
+# Empty dependencies file for main_debug.
 # This may be replaced when dependencies are built.
