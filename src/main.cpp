@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -88,6 +89,16 @@ private:
 };
 
 int main() {
+    // check SDL Image version
+    SDL_version img_version;
+    SDL_IMAGE_VERSION(&img_version);
+    std::cout << "SDL Image version: " << (int)img_version.major << "." << (int)img_version.minor << "." << (int)img_version.patch << std::endl;
+    
+    // check SDL version
+    SDL_version sdl_version;
+    SDL_VERSION(&sdl_version);
+    std::cout << "SDL version: " << (int)sdl_version.major << "." << (int)sdl_version.minor << "." << (int)sdl_version.patch << std::endl;
+
     std::cout << "Enter dampening factor (e, default 0.9): ";
     std::string dampeningInput;
     std::getline(std::cin, dampeningInput);

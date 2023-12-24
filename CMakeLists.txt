@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.5.0)
 
 project(PhysicsEngine VERSION 0.1.0 LANGUAGES CXX)
 
@@ -29,7 +29,7 @@ add_executable(PhysicsEngine ${SOURCES})
 target_link_libraries(PhysicsEngine PRIVATE ${SDL2_LIBRARIES})
 
 # Set compiler flags for Debug
-# target_compile_options(PhysicsEngine PRIVATE "$<$<CONFIG:DEBUG>: -O0 -g>")
+target_compile_options(PhysicsEngine PRIVATE $<$<CONFIG:DEBUG>: -O0 -g -Wall>)
 
 # Set compiler flags for Release
-target_compile_options(PhysicsEngine PRIVATE "$<$<CONFIG:RELEASE>: -O3>")
+target_compile_options(PhysicsEngine PRIVATE $<$<CONFIG:RELEASE>: -O3>)
