@@ -88,7 +88,7 @@ private:
     float vx, vy;          // Velocity components
 };
 
-int main() {
+int main(int argc, char* argv[]) {
     // check SDL Image version
     SDL_version img_version;
     SDL_IMAGE_VERSION(&img_version);

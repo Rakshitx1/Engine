@@ -28,6 +28,9 @@ add_executable(PhysicsEngine ${SOURCES})
 # Link the executable with SDL2 libraries
 target_link_libraries(PhysicsEngine PRIVATE ${SDL2_LIBRARIES})
 
+# Set compiler flags
+target_compile_options(PhysicsEngine PRIVATE -m64)
+
 # Set compiler flags for Debug
 target_compile_options(PhysicsEngine PRIVATE $<$<CONFIG:DEBUG>: -O0 -g -Wall>)
 
